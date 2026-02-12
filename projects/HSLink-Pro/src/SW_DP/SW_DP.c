@@ -13,6 +13,7 @@ void PORT_SWD_SETUP(void)
 
 void SWJ_Sequence(uint32_t count, const uint8_t *data)
 {
+    PIN_nTRST_OUT(1);
     if (DAP_Data.debug_port == DAP_PORT_JTAG) {
         gpio_write_pin(PIN_GPIO, GPIO_GET_PORT_INDEX(SWDIO_DIR), GPIO_GET_PIN_INDEX(SWDIO_DIR),
                        1); // SWDIO 输出
